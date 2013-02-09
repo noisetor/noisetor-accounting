@@ -50,6 +50,7 @@ sub format_dollar {
     for my $i (@_) {
         if (defined $i) {
             $i = sprintf "%.02f", $i;
+            $i = "<font color=red><b>$i</b></font>" if $i < 0;
         }
         else {
             $i = "&nbsp;";
