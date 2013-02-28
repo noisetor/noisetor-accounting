@@ -50,7 +50,7 @@ sub display_headings {
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            <td bgcolor=dddddd>Income
+            <td bgcolor=dddddd>Gross Income
             <td bgcolor=dddddd>PayPal Fees
             <td bgcolor=dddddd align=center>Noisebridge<br>5% Donation
             <td bgcolor=dddddd>Expense
