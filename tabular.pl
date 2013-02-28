@@ -24,15 +24,26 @@ my $month_fee = 0;
 my $month_noisebridge = 0;
 my $month_expense = 0;
 
-sub display_header {
+sub display_html_start {
     print "
         <html>
         <head>
             <title>Noisetor Finances</title>
         </head>
         <body>
+        <table bgcolor=ffffff cellpadding=4>\n";
+}
 
-        <table bgcolor=ffffff cellpadding=4>
+sub display_headings {
+    print "
+        <tr bgcolor=ffffff>
+            <td align=left  bgcolor=ffffff><tiny>&nbsp;</tiny>
+            <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+            <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+            <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+            <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+            <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
+            <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
         <tr bgcolor=00ff00 valign=bottom>
             <td bgcolor=dddddd>Date
             <td bgcolor=dddddd>Item
@@ -119,18 +130,7 @@ sub display {
 
     $lasttime = $time;
     return unless $time;
-
-    if ($nl) {
-        printf "
-            <tr bgcolor=ffffff>
-                <td align=left  bgcolor=ffffff><tiny>&nbsp;</tiny>
-                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
-                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
-                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
-                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
-                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>
-                <td align=right bgcolor=ffffff><tiny>&nbsp;</tiny>\n";
-    }
+    display_headings if $nl;
 
     my $date = POSIX::strftime "%Y-%m-%d", localtime $time;
 
@@ -188,7 +188,8 @@ for my $file (@ARGV) {
 
 @transactions = sort { $a->{timestamp} <=> $b->{timestamp} } @transactions;
 
-display_header;
+display_html_start;
+display_headings;
 
 for my $i (@transactions) {
 
